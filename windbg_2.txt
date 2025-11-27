@@ -1,0 +1,196 @@
+0:050> !analyze -v
+*******************************************************************************
+*                                                                             *
+*                        Exception Analysis                                   *
+*                                                                             *
+*******************************************************************************
+
+
+KEY_VALUES_STRING: 1
+
+    Key  : AV.Type
+    Value: Execute
+
+    Key  : Analysis.CPU.mSec
+    Value: 218
+
+    Key  : Analysis.Elapsed.mSec
+    Value: 227
+
+    Key  : Analysis.IO.Other.Mb
+    Value: 0
+
+    Key  : Analysis.IO.Read.Mb
+    Value: 1
+
+    Key  : Analysis.IO.Write.Mb
+    Value: 2
+
+    Key  : Analysis.Init.CPU.mSec
+    Value: 1015
+
+    Key  : Analysis.Init.Elapsed.mSec
+    Value: 23648
+
+    Key  : Analysis.Memory.CommitPeak.Mb
+    Value: 347
+
+    Key  : Analysis.Version.DbgEng
+    Value: 10.0.29457.1000
+
+    Key  : Analysis.Version.Description
+    Value: 10.2506.23.01 amd64fre
+
+    Key  : Analysis.Version.Ext
+    Value: 1.2506.23.1
+
+    Key  : Failure.Bucket
+    Value: SOFTWARE_NX_FAULT_INVALID_POINTER_EXECUTE_c0000005_amdxc64.dll!Unknown
+
+    Key  : Failure.Exception.Code
+    Value: 0xc0000005
+
+    Key  : Failure.Exception.IP.Address
+    Value: 0x1f5772640
+
+    Key  : Failure.Hash
+    Value: {0657e5f5-2b84-8afc-e309-855eac2ab72f}
+
+    Key  : Failure.ProblemClass.Primary
+    Value: SOFTWARE_NX_FAULT
+
+    Key  : Timeline.OS.Boot.DeltaSec
+    Value: 25383
+
+    Key  : Timeline.Process.Start.DeltaSec
+    Value: 80
+
+    Key  : WER.OS.Branch
+    Value: ge_release
+
+    Key  : WER.OS.Version
+    Value: 10.0.26100.1
+
+    Key  : WER.Process.Version
+    Value: 1.0.394.13260
+
+
+FILE_IN_CAB:  CrashDump_2025.11.27_17.43.47.299.mdmp
+
+COMMENT:  Frostbite MiniDump. Address: 1f5772640 (In Windbg type: .ecxr)
+[EOF]
+
+NTGLOBALFLAG:  0
+
+CONTEXT:  (.ecxr)
+rax=00000001ea9903e0 rbx=00000001d8254c20 rcx=00000001d8254c20
+rdx=000000007fd50870 rsi=0000000000000000 rdi=0000000000000000
+rip=00000001f5772640 rsp=00000000f166b428 rbp=00000001daabff08
+ r8=0000000000000000  r9=0000000000000001 r10=0000000000000001
+r11=0000000000000095 r12=0000000000000000 r13=00000001d8254a00
+r14=0000000000000000 r15=0000000000000000
+iopl=0         nv up ei pl nz na po nc
+cs=0033  ss=002b  ds=002b  es=002b  fs=0053  gs=002b             efl=00010206
+00000001`f5772640 70b4            jo      00000001`f57725f6              [br=0]
+Resetting default scope
+
+EXCEPTION_RECORD:  (.exr -1)
+ExceptionAddress: 00000001f5772640
+   ExceptionCode: c0000005 (Access violation)
+  ExceptionFlags: 00000000
+NumberParameters: 2
+   Parameter[0]: 0000000000000008
+   Parameter[1]: 00000001f5772640
+Attempt to execute non-executable address 00000001f5772640
+
+PROCESS_NAME:  bf6.exe
+
+EXECUTE_ADDRESS: 1f5772640
+
+ERROR_CODE: (NTSTATUS) 0xc0000005 - The instruction at 0x%p referenced memory at 0x%p. The memory could not be %s.
+
+EXCEPTION_CODE_STR:  c0000005
+
+EXCEPTION_PARAMETER1:  0000000000000008
+
+EXCEPTION_PARAMETER2:  00000001f5772640
+
+IP_ON_HEAP:  00000001f5772640
+The fault address in not in any loaded module, please check your build's rebase
+log at <releasedir>\bin\build_logs\timebuild\ntrebase.log for module which may
+contain the address if it were loaded.
+
+STACK_TEXT:  
+00000000`f166b428 00007fff`83d48e01     : 00000001`d823a7d8 00000000`00000000 00000001`d823a5b0 00000001`d8254c28 : 0x00000001`f5772640
+00000000`f166b430 00007fff`83c81f32     : 00000001`d8254c20 00000000`00000000 00000000`00000000 00000001`d823a5b0 : amdxc64!boost::archive::detail::iserializer<sc_xml_iarchive,_SC_SI_PS_ATTR_CH_ENTRY>::load_object_data+0x1fecc1
+00000000`f166b460 00007fff`83c7adcd     : 00000000`00000001 00000000`00000001 00000001`00000000 00000000`00000000 : amdxc64!boost::archive::detail::iserializer<sc_xml_iarchive,_SC_SI_PS_ATTR_CH_ENTRY>::load_object_data+0x137df2
+00000000`f166b550 00007fff`83af0b0f     : 00000001`ea990440 00000001`daabff08 00000000`7fd50870 00000001`d822fe38 : amdxc64!boost::archive::detail::iserializer<sc_xml_iarchive,_SC_SI_PS_ATTR_CH_ENTRY>::load_object_data+0x130c8d
+00000000`f166b690 00007fff`83b1297d     : 00000001`ea990440 00000001`d836f618 00000000`00000000 00000001`ea990440 : amdxc64!boost::serialization::singleton<boost::serialization::extended_type_info_typeid<SC_INPUT> >::singleton<boost::serialization::extended_type_info_typeid<SC_INPUT> >+0x1b3ef
+00000000`f166b870 00007fff`83af67f7     : 00000000`7fd50870 00000001`e9d22038 00000002`ddd24cf8 00000000`7fd50801 : amdxc64!boost::serialization::singleton<boost::serialization::extended_type_info_typeid<SC_INPUT> >::singleton<boost::serialization::extended_type_info_typeid<SC_INPUT> >+0x3d25d
+00000000`f166ba60 00007fff`83a6c7ba     : 00000000`7fd50870 00000002`ddd24cf8 00000002`ddd1cf18 00000000`fffffffc : amdxc64!boost::serialization::singleton<boost::serialization::extended_type_info_typeid<SC_INPUT> >::singleton<boost::serialization::extended_type_info_typeid<SC_INPUT> >+0x210d7
+00000000`f166bac0 00007fff`83a73c82     : 00000000`00000000 00000002`ddd24cf8 00000000`f166c340 00000000`f166c970 : amdxc64!GetSettingsBlobsAll+0xa003aa
+00000000`f166c2e0 00007fff`83a5d0ca     : 00000000`00000000 00000001`cad2f468 00000000`f166c520 00000000`00000000 : amdxc64!GetSettingsBlobsAll+0xa07872
+00000000`f166c420 00007fff`83a5f6cf     : 00000001`fffffffc 00000001`cad2f468 00000000`00000000 00000000`00000001 : amdxc64!GetSettingsBlobsAll+0x9f0cba
+00000000`f166c570 00007fff`83a8b7ac     : 00000000`00000000 00000000`00000000 00000000`00000001 00000002`dd462928 : amdxc64!GetSettingsBlobsAll+0x9f32bf
+00000000`f166c630 00007fff`83a8b76e     : 00000001`f1151e28 00000000`f166c7a0 00000000`00000000 00000000`00000000 : amdxc64!GetSettingsBlobsAll+0xa1f39c
+00000000`f166c6a0 00007fff`83a8a631     : 00000001`00000000 00000001`cad2f468 00000001`f1151e28 00000001`bde4cb00 : amdxc64!GetSettingsBlobsAll+0xa1f35e
+00000000`f166cad0 00007fff`83a5a7b9     : 00000001`00000000 00000000`00000000 00000000`00000000 00000000`00000000 : amdxc64!GetSettingsBlobsAll+0xa1e221
+00000000`f166cd00 00007fff`83073b4d     : 00000000`00000000 00000000`048c5db0 00000001`f1151e28 00000000`f166cdb8 : amdxc64!GetSettingsBlobsAll+0x9ee3a9
+00000000`f166cd70 00007fff`83073cf5     : 00000001`fffffffc 00000000`f166de20 00000001`cad2e450 00000001`cad2ea18 : amdxc64!GetSettingsBlobsAll+0x773d
+00000000`f166cea0 00007fff`8306f408     : 00000001`cad2e450 00000000`f166d0c0 00000000`80070057 00000000`00000000 : amdxc64!GetSettingsBlobsAll+0x78e5
+00000000`f166cfc0 00007fff`8306d8c8     : 00000000`00000000 00000000`f166de20 00000000`00000000 00000000`00000000 : amdxc64!GetSettingsBlobsAll+0x2ff8
+00000000`f166d4f0 00007fff`8302730e     : 00000000`7774bcd0 00000000`00000000 00000001`cad2e450 00000001`cad2e270 : amdxc64!GetSettingsBlobsAll+0x14b8
+00000000`f166d5c0 00007fff`830dbad0     : 00000001`cad2e450 00000000`f166de20 00000000`f166de20 00000000`7774bcd0 : amdxc64!OpenShimInterface+0x2f0e
+00000000`f166d6d0 00007fff`830d5081     : 00000000`00000000 00000000`00000000 00000000`00000000 00000000`00000000 : amdxc64!GetSettingsBlobsAll+0x6f6c0
+00000000`f166d700 00007fff`c9261c41     : 00000000`00000000 00000000`00000000 00000000`00000000 00000000`00000000 : amdxc64!GetSettingsBlobsAll+0x68c71
+00000000`f166dba0 00007fff`c9262d52     : 00000000`7774bcd0 00000000`f166dcd0 00000000`f166dfd0 00000000`00000000 : D3D12Core!TableFunctionTraits<0>::Detail::InvokerImpl<TableFunctionTraitsImpl<0>::FunctionTraits<9,34,void>,void,long,D3D10DDI_HDEVICE,D3D12DDIARG_CREATE_PIPELINE_STATE_0010 const * __ptr64,D3D12DDI_HPIPELINESTATE,D3D12DDI_HRTPIPELINESTATE>::Call+0x4d
+00000000`f166dbd0 00007fff`c9262b9a     : 00000000`77d6af40 00000000`f166dfd0 00000000`f166deb0 00000000`00000000 : D3D12Core!CDevice::VersionedCreatePipelineState+0x4a
+00000000`f166ddc0 00007fff`c92627fc     : 00000000`05aa2259 00000001`cad2e240 00000001`cad2e240 00000000`f166dfd0 : D3D12Core!CPipelineState::FinalConstruct+0x202
+00000000`f166df20 00007fff`c926cbe0     : 00000000`7774a350 00000001`cad2e260 00000001`cad2e270 00000000`f166e1e0 : D3D12Core!CLayeredObject<CPipelineState>::CreateInstance+0x68
+00000000`f166df60 00007fff`c92af245     : 00000000`000011e8 00000000`00000000 00000000`000000b0 00000001`cad2e240 : D3D12Core!CDevice::CreateLayeredChild+0x450
+00000000`f166e0a0 00007fff`dd651697     : 00000000`000011e8 00000000`f166e1e0 00000000`00000000 00007ff8`22a6f28b : D3D12Core!NDXGI::CDevice::CreateLayeredChild+0x35
+00000000`f166e0f0 00007fff`c92b127a     : 00000000`00000000 00000000`7774a350 00000000`00000000 00000000`00000000 : D3D12!NOutermost::CDevice::CreateLayeredChild+0x177
+00000000`f166e310 00007fff`c92afb72     : 00000001`00000001 00007fff`c92afb93 00007fff`e0c9df68 00000000`00000000 : D3D12Core!CDevice::CreatePipelineStateImpl+0x140a
+00000000`f166eca0 00007fff`e0bce71a     : 00000000`f166f720 00007fff`e0bce71a 00000000`00000003 00000000`de00e638 : D3D12Core!CDevice::CreatePipelineState+0x72
+00000000`f166f0a0 00007fff`e0bce393     : 00000000`00000000 00000000`0c130500 00000000`0a981e00 00000000`0a981e00 : Engine_Render_Core2_PlatformPcDx12_retail!rc2DeviceInit+0x1f2da
+00000000`f166f650 00007fff`e0bcf212     : 00000000`00000000 00000000`0a981e00 00000000`f166fb10 00000000`00000000 : Engine_Render_Core2_PlatformPcDx12_retail!rc2DeviceInit+0x1ef53
+00000000`f166fa60 00007fff`e0bbcc8d     : 00000000`0b36b360 00000000`f166fc00 00000000`41681499 00000000`0a981e00 : Engine_Render_Core2_PlatformPcDx12_retail!rc2DeviceInit+0x1fdd2
+00000000`f166fae0 00000001`4505b79f     : 00000000`f166fc00 00000000`f166fc80 00000000`0a04d698 00000000`7805cbb0 : Engine_Render_Core2_PlatformPcDx12_retail!rc2DeviceInit+0xd84d
+00000000`f166fb30 00000001`4505b526     : 00000000`09f80870 00000000`09f80870 00000000`0a04d698 00000000`0a04d680 : bf6!ffxFsr2ResourceIsNull+0x27afa2f
+00000000`f166fb80 00000001`44a9409f     : 00000000`00000000 00000000`80a1eb40 00000001`4a239280 00000001`4a223220 : bf6!ffxFsr2ResourceIsNull+0x27af7b6
+00000000`f166fd00 00000001`44b4d477     : 00000000`360bc600 00000000`360bc600 00000000`00000000 00000000`00000000 : bf6!ffxFsr2ResourceIsNull+0x21e832f
+00000000`f166fd90 00000001`40c61085     : 00000001`49889278 00000000`35bf12c0 00000001`49889278 00000001`4a18c160 : bf6!ffxFsr2ResourceIsNull+0x22a1707
+00000000`f166fde0 00000001`434f848b     : 00000000`00000000 00000000`00000000 00000000`00000000 00000000`f166ff00 : bf6!isGlimpseEnabled+0x770995
+00000000`f166fe70 00000001`434fa254     : 00000000`361f1800 00000000`361f17c0 00000000`35bf12c0 00000000`00000000 : bf6!ffxFsr2ResourceIsNull+0xc4c71b
+00000000`f166fec0 00000001`4310864c     : 00000001`49698f00 00000000`35bf12c0 ffffffff`00000103 00000000`00000000 : bf6!ffxFsr2ResourceIsNull+0xc4e4e4
+00000000`f166ff00 00007ff8`224d37b0     : 00000000`77b5fb30 00000000`00000000 00000000`00000000 00000000`00000000 : bf6!ffxFsr2ResourceIsNull+0x85c8dc
+00000000`f166ff30 00007ff8`23f1e8d7     : 00000000`00000000 00000000`00000000 00000000`00000000 00000000`00000000 : ucrtbase!thread_start<unsigned int (__cdecl*)(void *),1>+0x30
+00000000`f166ff60 00007ff8`2529c34c     : 00000000`00000000 00000000`00000000 000004f0`fffffb30 000004d0`fffffb30 : kernel32!BaseThreadInitThunk+0x17
+00000000`f166ff90 00000000`00000000     : 00000000`00000000 00000000`00000000 00000000`00000000 00000000`00000000 : ntdll!RtlUserThreadStart+0x2c
+
+
+SYMBOL_NAME:  amdxc64+dc8e01
+
+MODULE_NAME: amdxc64
+
+IMAGE_NAME:  amdxc64.dll
+
+STACK_COMMAND: ~50s; .ecxr ; kb
+
+FAILURE_BUCKET_ID:  SOFTWARE_NX_FAULT_INVALID_POINTER_EXECUTE_c0000005_amdxc64.dll!Unknown
+
+OS_VERSION:  10.0.26100.1
+
+BUILDLAB_STR:  ge_release
+
+OSPLATFORM_TYPE:  x64
+
+OSNAME:  Windows 10
+
+IMAGE_VERSION:  31.0.24033.1003
+
+FAILURE_ID_HASH:  {0657e5f5-2b84-8afc-e309-855eac2ab72f}
+
+Followup:     MachineOwner
+---------
+
